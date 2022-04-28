@@ -1,3 +1,7 @@
 .popup__form_input-job {
   margin: 15px 0 30px;
+  margin: 30px 0 15px;
+  font-size: 14px;
+  line-height: 1.21;
+  font-weight: 400;
 }

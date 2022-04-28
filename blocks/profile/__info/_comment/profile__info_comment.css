@@ -1,10 +1,10 @@
 .profile__info_comment {
+  display: block;
   grid-column: 1 / span 2;
-  display: inline-block;
   margin: 0;
   line-height: 1.22;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   word-wrap: break-word;
 }
 

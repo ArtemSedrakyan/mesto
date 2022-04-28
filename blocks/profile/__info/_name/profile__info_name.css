@@ -1,6 +1,6 @@
 .profile__info_name {
+  display: block;
   width: 100%;
-  display: inline;
   margin: 0;
   line-height: 1.14;
   font-size: 42px;
