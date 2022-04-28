@@ -7,7 +7,7 @@
   padding: 0;
   border: none;
   background-color: #fff;
-
+  background-image: url(../../../images/like-icon.svg);
 }
 
 .element__like-button:hover {
