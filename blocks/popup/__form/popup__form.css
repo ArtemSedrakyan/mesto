@@ -1,0 +1,6 @@
+.popup__form {
+  width: 100%;
+  min-height: 27px;
+  border: none;
+  border-bottom: 1px solid #000;
+}

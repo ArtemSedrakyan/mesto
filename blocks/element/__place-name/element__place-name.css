@@ -1,0 +1,23 @@
+.element__place-name {
+  justify-self: flex-start;
+  align-self: baseline;
+  max-width: 230px;
+  width: 100%;
+  margin: 0;
+  padding: 0 10%;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1.21;
+  font-size: 24px;
+  font-weight: 900;
+  color: #000;
+}
+
+@media screen  and (min-width: 1140px) and (max-width: 1250px) {
+  .element__place-name {
+    max-width: 200px;
+  }
+}
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="pages/index.css" />
+    <title>Mesto Russia</title>
+  </head>
+  <body class="page">
+    <header class="page__element header">
+      <img
+        class="header__logo"
+        src="images/header-logo.svg"
+        alt="логотип Место"
+      />
+    </header>
+    <main class="page__element content">
+      <section class="profile">
+        <img
+          class="profile__avatar"
+          src="images/image_kusto.jpg"
+          alt="Жак-Ив Кусто"
+        />
+        <div class="profile__info">
+          <p class="profile__info profile__info_name">Жак-Ив Кусто</p>
+          <button
+            class="profile__info profile__info_edit-button"
+            type="button"
+          ></button>
+          <p class="profile__info profile__info_comment">
+            Исследователь океана
+          </p>
+        </div>
+        <button class="profile__add-button" type="button"></button>
+      </section>
+      <section class="page__element">
+        <ul class="elements">
+          <li class="element">
+            <div class="element__image element__image_park"></div>
+            <p class="element__place-name">Утро в парке</p>
+            <button class="element__like-button">
+              <svg class="element__like-icon">
+                <path
+                  fill-rule="evenodd"
+                  d="M19.2444 2.74849C17.5625 1.08549 14.8243 1.08384 13.1403
+                2.74355L10.9911 4.91203L8.82016 2.76549C7.13407 1.08182 4.40014
+                1.08935 2.74406 2.74323L2.73878 2.7485C1.93084 3.54736 1.5
+                4.60323 1.5 5.74496C1.5 6.87098 1.94247 7.93498 2.74468
+                8.74728L10.9804 16.8905L19.2444 8.71923C20.9215 7.06094 20.9138
+                4.38283 19.2497 2.75372L19.2444 2.74849ZM10.9804 19L1.6841
+                9.80806C0.606277 8.72013 0 7.27695 0 5.74496C0 4.21297 0.583822
+                2.76979 1.6841 1.68186C3.92957 -0.560619 7.61215 -0.560619 9.88007
+                1.70406L10.9804 2.792L12.0806 1.68186C14.3486 -0.560619 18.0311 -0.560619
+                20.2991 1.68186C22.567 3.90213 22.567 7.54338 20.2991 9.78586L10.9804 19Z"
+                />
+              </svg>
+            </button>
+          </li>
+          <li class="element">
+            <div class="element__image element__image_mountain-mist"></div>
+            <p class="element__place-name">Горный туман</p>
+            <svg class="element__like-button">
+              <path
+                fill-rule="evenodd"
+                d="M19.2444 2.74849C17.5625 1.08549 14.8243 1.08384 13.1403
+                2.74355L10.9911 4.91203L8.82016 2.76549C7.13407 1.08182 4.40014
+                1.08935 2.74406 2.74323L2.73878 2.7485C1.93084 3.54736 1.5
+                4.60323 1.5 5.74496C1.5 6.87098 1.94247 7.93498 2.74468
+                8.74728L10.9804 16.8905L19.2444 8.71923C20.9215 7.06094 20.9138
+                4.38283 19.2497 2.75372L19.2444 2.74849ZM10.9804 19L1.6841
+                9.80806C0.606277 8.72013 0 7.27695 0 5.74496C0 4.21297 0.583822
+                2.76979 1.6841 1.68186C3.92957 -0.560619 7.61215 -0.560619 9.88007
+                1.70406L10.9804 2.792L12.0806 1.68186C14.3486 -0.560619 18.0311 -0.560619
+                20.2991 1.68186C22.567 3.90213 22.567 7.54338 20.2991 9.78586L10.9804 19Z"
+              />
+            </svg>
+          </li>
+          <li class="element">
+            <div class="element__image element__image_waterfall"></div>
+            <p class="element__place-name">Водопад</p>
+            <svg class="element__like-button">
+              <path
+                fill-rule="evenodd"
+                d="M19.2444 2.74849C17.5625 1.08549 14.8243 1.08384 13.1403
+                2.74355L10.9911 4.91203L8.82016 2.76549C7.13407 1.08182 4.40014
+                1.08935 2.74406 2.74323L2.73878 2.7485C1.93084 3.54736 1.5
+                4.60323 1.5 5.74496C1.5 6.87098 1.94247 7.93498 2.74468
+                8.74728L10.9804 16.8905L19.2444 8.71923C20.9215 7.06094 20.9138
+                4.38283 19.2497 2.75372L19.2444 2.74849ZM10.9804 19L1.6841
+                9.80806C0.606277 8.72013 0 7.27695 0 5.74496C0 4.21297 0.583822
+                2.76979 1.6841 1.68186C3.92957 -0.560619 7.61215 -0.560619 9.88007
+                1.70406L10.9804 2.792L12.0806 1.68186C14.3486 -0.560619 18.0311 -0.560619
+                20.2991 1.68186C22.567 3.90213 22.567 7.54338 20.2991 9.78586L10.9804 19Z"
+              />
+            </svg>
+          </li>
+          <li class="element">
+            <div class="element__image element__image_winter-forest"></div>
+            <p class="element__place-name">Зимний лес</p>
+            <svg class="element__like-button">
+              <path
+                fill-rule="evenodd"
+                d="M19.2444 2.74849C17.5625 1.08549 14.8243 1.08384 13.1403
+                2.74355L10.9911 4.91203L8.82016 2.76549C7.13407 1.08182 4.40014
+                1.08935 2.74406 2.74323L2.73878 2.7485C1.93084 3.54736 1.5
+                4.60323 1.5 5.74496C1.5 6.87098 1.94247 7.93498 2.74468
+                8.74728L10.9804 16.8905L19.2444 8.71923C20.9215 7.06094 20.9138
+                4.38283 19.2497 2.75372L19.2444 2.74849ZM10.9804 19L1.6841
+                9.80806C0.606277 8.72013 0 7.27695 0 5.74496C0 4.21297 0.583822
+                2.76979 1.6841 1.68186C3.92957 -0.560619 7.61215 -0.560619 9.88007
+                1.70406L10.9804 2.792L12.0806 1.68186C14.3486 -0.560619 18.0311 -0.560619
+                20.2991 1.68186C22.567 3.90213 22.567 7.54338 20.2991 9.78586L10.9804 19Z"
+              />
+            </svg>
+          </li>
+          <li class="element">
+            <div class="element__image element__image_eagle"></div>
+            <p class="element__place-name">Горный орел</p>
+            <svg class="element__like-button">
+              <path
+                fill-rule="evenodd"
+                d="M19.2444 2.74849C17.5625 1.08549 14.8243 1.08384 13.1403
+                2.74355L10.9911 4.91203L8.82016 2.76549C7.13407 1.08182 4.40014
+                1.08935 2.74406 2.74323L2.73878 2.7485C1.93084 3.54736 1.5
+                4.60323 1.5 5.74496C1.5 6.87098 1.94247 7.93498 2.74468
+                8.74728L10.9804 16.8905L19.2444 8.71923C20.9215 7.06094 20.9138
+                4.38283 19.2497 2.75372L19.2444 2.74849ZM10.9804 19L1.6841
+                9.80806C0.606277 8.72013 0 7.27695 0 5.74496C0 4.21297 0.583822
+                2.76979 1.6841 1.68186C3.92957 -0.560619 7.61215 -0.560619 9.88007
+                1.70406L10.9804 2.792L12.0806 1.68186C14.3486 -0.560619 18.0311 -0.560619
+                20.2991 1.68186C22.567 3.90213 22.567 7.54338 20.2991 9.78586L10.9804 19Z"
+              />
+            </svg>
+          </li>
+          <li class="element">
+            <div class="element__image element__image_sea-lion"></div>
+            <p class="element__place-name">Морской лев греется на солнце</p>
+            <svg class="element__like-button">
+              <path
+                fill-rule="evenodd"
+                d="M19.2444 2.74849C17.5625 1.08549 14.8243 1.08384 13.1403
+                2.74355L10.9911 4.91203L8.82016 2.76549C7.13407 1.08182 4.40014
+                1.08935 2.74406 2.74323L2.73878 2.7485C1.93084 3.54736 1.5
+                4.60323 1.5 5.74496C1.5 6.87098 1.94247 7.93498 2.74468
+                8.74728L10.9804 16.8905L19.2444 8.71923C20.9215 7.06094 20.9138
+                4.38283 19.2497 2.75372L19.2444 2.74849ZM10.9804 19L1.6841
+                9.80806C0.606277 8.72013 0 7.27695 0 5.74496C0 4.21297 0.583822
+                2.76979 1.6841 1.68186C3.92957 -0.560619 7.61215 -0.560619 9.88007
+                1.70406L10.9804 2.792L12.0806 1.68186C14.3486 -0.560619 18.0311 -0.560619
+                20.2991 1.68186C22.567 3.90213 22.567 7.54338 20.2991 9.78586L10.9804 19Z"
+              />
+            </svg>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="page__element footer">&amp; 2022 Mesto Russia</footer>
+    <div class="popup">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button"></button>
+        <form class="popup__form">
+          <p class="popup__title">Редактировать профиль</p>
+          <input
+            class="popup__form popup__form_input-name"
+            type="text"
+            value="Жак-Ив Кусто"
+          />
+          <input
+            class="popup__form popup__form_input-job"
+            type="text"
+            value="Исследователь океана"
+          />
+          <input class="popup__submit-button" type="submit" value="Сохранить" />
+        </form>
+      </div>
+    </div>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

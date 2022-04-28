@@ -1,0 +1,19 @@
+.profile__info_comment {
+  grid-column: 1 / span 2;
+  display: inline-block;
+  margin: 0;
+  line-height: 1.22;
+  font-size: 18px;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__info_comment {
+    width: 100%;
+    text-align: center;
+    line-height: 17px;
+    font-size: 14px;
+    text-align: center;
+  }
+}
