@@ -22,75 +22,84 @@
           alt="Жак-Ив Кусто"
         />
         <div class="profile__info">
-          <h1 class="profile__info profile__info_name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button
-            class="profile__info profile__info_edit-button"
+            class="profile__edit-button"
             type="button"
+            aria-label="Редактировать"
           ></button>
-          <h2 class="profile__info profile__info_comment">
-            Исследователь океана
-          </h2>
+          <p class="profile__job">Исследователь океана</p>
         </div>
-        <button class="profile__add-button" type="button"></button>
+        <button
+          class="profile__add-button"
+          type="button"
+          aria-label="Добавить">
+        </button>
       </section>
       <section class="page__element">
         <ul class="elements">
           <li class="element">
-            <div class="element__image element__image_park"></div>
-            <h3 class="element__place-name">Утро в парке</h3>
-            <button class="element__like-button">
+            <div class="element__image element__image_nature_park"></div>
+            <h2 class="element__place-name">Утро в парке</h2>
+            <button class="element__like-button" type="button" aria-label="Лайк">
             </button>
           </li>
           <li class="element">
-            <div class="element__image element__image_mountain-mist"></div>
-            <h3 class="element__place-name">Горный туман</h3>
-            <button class="element__like-button">
+            <div class="element__image element__image_nature_mountain-mist"></div>
+            <h2 class="element__place-name">Горный туман</h2>
+            <button class="element__like-button" type="button" aria-label="Лайк">
             </button>
           </li>
           <li class="element">
-            <div class="element__image element__image_waterfall"></div>
-            <h3 class="element__place-name">Водопад</h3>
-            <button class="element__like-button">
+            <div class="element__image element__image_nature_waterfall"></div>
+            <h2 class="element__place-name">Водопад</h2>
+            <button class="element__like-button" type="button" aria-label="Лайк">
             </button>
           </li>
           <li class="element">
-            <div class="element__image element__image_winter-forest"></div>
-            <h3 class="element__place-name">Зимний лес</h3>
-            <button class="element__like-button">
+            <div class="element__image element__image_nature_winter-forest"></div>
+            <h2 class="element__place-name">Зимний лес</h2>
+            <button class="element__like-button" type="button" aria-label="Лайк">
             </button>
           </li>
           <li class="element">
-            <div class="element__image element__image_eagle"></div>
-            <h3 class="element__place-name">Горный орел</h3>
-            <button class="element__like-button">
+            <div class="element__image element__image_creature_eagle"></div>
+            <h2 class="element__place-name">Горный орел</h2>
+            <button class="element__like-button" type="button" aria-label="Лайк">
             </button>
           </li>
           <li class="element">
-            <div class="element__image element__image_sea-lion"></div>
-            <h3 class="element__place-name">Морской лев греется на солнце</h3>
-            <button class="element__like-button">
+            <div class="element__image element__image_creature_sea-lion"></div>
+            <h2 class="element__place-name">Морской лев греется на солнце</h2>
+            <button class="element__like-button" type="button" aria-label="Лайк">
             </button>
           </li>
         </ul>
       </section>
     </main>
-    <footer class="page__element footer">&amp; 2022 Mesto Russia</footer>
+    <footer class="page__element footer">&copy; 2022 Mesto Russia</footer>
     <div class="popup">
       <div class="popup__container">
         <button class="popup__close-button" type="button"></button>
-        <form class="popup__form">
-          <p class="popup__title">Редактировать профиль</p>
+        <form class="popup__form" name="popup-edit-profile">
+          <h2 class="popup__title">Редактировать профиль</h2>
           <input
-            class="popup__form popup__form_input-name"
+            class="popup__form popup__form_input_name"
+            name="name"
             type="text"
-            value="Жак-Ив Кусто"
+            value=""
           />
           <input
-            class="popup__form popup__form_input-job"
+            class="popup__form popup__form_input_job"
+            name="job"
             type="text"
-            value="Исследователь океана"
+            value=""
           />
-          <input class="popup__submit-button" type="submit" value="Сохранить" />
+          <button
+            class="popup__submit-button"
+            type="submit">
+            Сохранить
+          </button>
         </form>
       </div>
     </div>

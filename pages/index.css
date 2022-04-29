@@ -20,9 +20,9 @@
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
 @import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__info/_name/profile__info_name.css);
-@import url(../blocks/profile/__info/_comment/profile__info_comment.css);
-@import url(../blocks/profile/__info/_edit-button/profile__info_edit-button.css);
+@import url(../blocks/profile/__name/profile__name.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__job/profile__job.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 
 /*Блок elements*/
@@ -33,12 +33,12 @@
 
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__image/element__image.css);
-@import url(../blocks/element/__image/_park/element__image_park.css);
-@import url(../blocks/element/__image/_mountain-mist/element__image_mountain-mist.css);
-@import url(../blocks/element/__image/_waterfall/element__image_waterfall.css);
-@import url(../blocks/element/__image/_winter-forest/element__image_winter-forest.css);
-@import url(../blocks/element/__image/_eagle/element__image_eagle.css);
-@import url(../blocks/element/__image/_sea-lion/element__image_sea-lion.css);
+@import url(../blocks/element/__image/_nature/_park/element__image_nature_park.css);
+@import url(../blocks/element/__image/_nature/_mountain-mist/element__image_nature_mountain-mist.css);
+@import url(../blocks/element/__image/_nature/_waterfall/element__image_nature_waterfall.css);
+@import url(../blocks/element/__image/_nature/_winter-forest/element__image_nature_winter-forest.css);
+@import url(../blocks/element/__image/_creature/_eagle/element__image_creature_eagle.css);
+@import url(../blocks/element/__image/_creature/_sea-lion/element__image_creature_sea-lion.css);
 @import url(../blocks/element/__place-name/element__place-name.css);
 @import url(../blocks/element/__like-button/element__like-button.css);
 
@@ -54,6 +54,4 @@
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__form/popup__form.css);
-@import url(../blocks/popup/__form/_input-name/popup__form_input-name.css);
-@import url(../blocks/popup/__form/_input-job/popup__form_input-job.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);

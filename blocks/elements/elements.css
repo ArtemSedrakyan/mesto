@@ -1,7 +1,6 @@
 .elements {
   box-sizing: border-box;
   list-style-type: none;
-  min-height: 744px;
   margin: 0;
   padding: 0;
   display: grid;

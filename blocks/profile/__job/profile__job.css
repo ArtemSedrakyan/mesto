@@ -1,15 +1,17 @@
-.profile__info_comment {
+.profile__job {
   display: block;
   grid-column: 1 / span 2;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   line-height: 1.22;
   font-size: 18px;
   font-weight: 400;
-  word-wrap: break-word;
 }
 
 @media screen and (max-width: 768px) {
-  .profile__info_comment {
+  .profile__job {
     width: 100%;
     text-align: center;
     line-height: 17px;
