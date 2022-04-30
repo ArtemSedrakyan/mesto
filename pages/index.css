@@ -33,12 +33,12 @@
 
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__image/element__image.css);
-@import url(../blocks/element/__image/_nature/_park/element__image_nature_park.css);
-@import url(../blocks/element/__image/_nature/_mountain-mist/element__image_nature_mountain-mist.css);
-@import url(../blocks/element/__image/_nature/_waterfall/element__image_nature_waterfall.css);
-@import url(../blocks/element/__image/_nature/_winter-forest/element__image_nature_winter-forest.css);
-@import url(../blocks/element/__image/_creature/_eagle/element__image_creature_eagle.css);
-@import url(../blocks/element/__image/_creature/_sea-lion/element__image_creature_sea-lion.css);
+@import url(../blocks/element/__image/_nature/element__image_nature_park.css);
+@import url(../blocks/element/__image/_nature/element__image_nature_mountain-mist.css);
+@import url(../blocks/element/__image/_nature/element__image_nature_waterfall.css);
+@import url(../blocks/element/__image/_nature/element__image_nature_winter-forest.css);
+@import url(../blocks/element/__image/_nature/element__image_nature_eagle.css);
+@import url(../blocks/element/__image/_nature/element__image_nature_sea-lion.css);
 @import url(../blocks/element/__place-name/element__place-name.css);
 @import url(../blocks/element/__like-button/element__like-button.css);
 

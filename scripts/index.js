@@ -13,19 +13,13 @@ let profileJob = document.querySelector('.profile__job');
 
 //Обработчик открытия формы
 function openPopup() {
-  if (popup.classList.contains('popup_opened')) {
-
-  } else {
     popup.classList.add('popup_opened');
     nameInput.value = profileName.textContent;
     jobInput.value = profileJob.textContent;
-  }
 };
 //Обработчик закрытия формы
 function closePopup() {
-  if (popup.classList.contains('popup_opened')) {
     popup.classList.remove('popup_opened');
-  }
 };
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
