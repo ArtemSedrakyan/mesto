@@ -33,14 +33,10 @@
 
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__image/element__image.css);
-@import url(../blocks/element/__image/_nature/element__image_nature_park.css);
-@import url(../blocks/element/__image/_nature/element__image_nature_mountain-mist.css);
-@import url(../blocks/element/__image/_nature/element__image_nature_waterfall.css);
-@import url(../blocks/element/__image/_nature/element__image_nature_winter-forest.css);
-@import url(../blocks/element/__image/_nature/element__image_nature_eagle.css);
-@import url(../blocks/element/__image/_nature/element__image_nature_sea-lion.css);
 @import url(../blocks/element/__place-name/element__place-name.css);
 @import url(../blocks/element/__like-button/element__like-button.css);
+@import url(../blocks/element/__like-button/_active/element__like-icon_active.css);
+@import url(../blocks/element/__delete-button/element__delete-button.css);
 
 /*Блок footer*/
 
@@ -55,3 +51,6 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__submit-button/popup__submit-button.css);
+@import url(../blocks/popup/__figure/popup__figure.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__description/popup__description.css);

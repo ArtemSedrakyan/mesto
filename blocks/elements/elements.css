@@ -5,7 +5,8 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: repeat(2, 367px);
+  grid-auto-rows: 367px;
   gap: 20px 17px;
 }
 
