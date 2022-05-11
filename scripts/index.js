@@ -46,8 +46,8 @@ const elements = document.querySelector('.elements');
 //Объявляем переменные для попапа добавления карточек
 const elementAddBtn = document.querySelector('.profile__add-button');
 const popupTypeAdd = document.querySelector('.popup_type_add');
-const elementTitleInput = document.querySelector('.popup__form_input_element_title');
-const elementLinkInput = document.querySelector('.popup__form_input_element_link');
+const elementTitleInput = document.querySelector('.popup__form_input_element-title');
+const elementLinkInput = document.querySelector('.popup__form_input_element-link');
 const popupFormTypeAdd = document.querySelector('.popup__form_add-element');
 //Объявляем переменные попапа просмотра фотографий
 const popupTypeView = document.querySelector('.popup_type_view');
