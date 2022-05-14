@@ -6,6 +6,8 @@ const elementTemplate = document.querySelector('.template-element').content;
 const popupCloseBtn = document.querySelectorAll('.popup__close-button');
 //объявляем переменные для попапа редактировния профиля
 const profileEditBtn = document.querySelector('.profile__edit-button');
+//Находим все попапы на странице, создаем из них массив
+const popupList = Array.from(document.querySelectorAll('.popup'));
 // Находим форму редактирования в DOM
 const popupTypeEdit = document.querySelector('.popup_type_edit');
 const formElementEdit = popupTypeEdit.querySelector('.popup__form_edit-profile');
@@ -66,20 +68,14 @@ elementAddBtn.addEventListener('click', function() {
   elementLinkInput.value = "";
 });
 //Обработчик события закрытия форм
-  for (let i = 0; i < popupCloseBtn.length; ++i) {
-    popupCloseBtn[i].addEventListener('click', function() {
-      const popupCloseBtnArray = Array.from(popupCloseBtn)
-      if (popupCloseBtnArray[i].nextElementSibling === formElementEdit) {
-        closePopup(popupTypeEdit);
-      } else if (popupCloseBtnArray[i].nextElementSibling === formElementAdd) {
-        closePopup(popupTypeAdd);
-      } else if  (popupCloseBtn[i].parentElement === popupViewFigure) {
-        closePopup(popupTypeView);
-      } else {
-        return popupCloseBtnArray[i];
-      }
-    })
-  };
+popupList.forEach(popup => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup__close-button')) {
+      closePopup(popup);
+    }
+  });
+});
+
 //Обработчик события "отпрвки" формы
 formElementEdit.addEventListener('submit', formSubmitHandler);
 //Функция создания новой карточки
