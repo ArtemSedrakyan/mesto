@@ -21,6 +21,8 @@ const profileJob = document.querySelector('.profile__job');
 const elementAddBtn = document.querySelector('.profile__add-button');
 const popupTypeAdd = document.querySelector('.popup_type_add');
 const formElementAdd = popupTypeAdd.querySelector('.popup__form_type_add');
+//Переменная кнопки сохранения на форме добавления карточки
+const submitAddFormBtn = formElementAdd.querySelector('.popup__submit-button');
 // Находим поля формы добавления в DOM
 const elementTitleInput = formElementAdd.querySelector('.popup__input_type_title');
 const elementLinkInput = formElementAdd.querySelector('.popup__input_type_link');
@@ -32,8 +34,8 @@ const popupImage = popupTypeView.querySelector('.popup__image');
 
 //Функция закрытия попапа по нажатию клавиши Escape
 const handleEscapePopup = (evt) => {
-  const activePopup = document.querySelector('.popup_opened');
   if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_opened');
     closePopup(activePopup);
   };
 };
@@ -65,11 +67,13 @@ function openPopup(popupType) {
 function closePopup(popupType) {
   popupType.classList.remove('popup_opened');
   document.removeEventListener('keydown', handleEscapePopup);
+  console.dir(popupType)
+  //if popup have form??
   removeActiveError(popupType);
 };
 // Обработчик «отправки» формы редактирования профиля, хотя пока
 // она никуда отправляться не будет
-function formSubmitHandler(evt) {
+function submitProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
@@ -94,17 +98,21 @@ elementAddBtn.addEventListener('click', function() {
   openPopup(popupTypeAdd);
   elementTitleInput.value = "";
   elementLinkInput.value = "";
+  if (!submitAddFormBtn.classList.contains('popup__submit-button_disabled')) {
+    submitAddFormBtn.classList.add('popup__submit-button_disabled');
+    submitAddFormBtn.disabled = true;
+  };
 });
 //Обработчик события закрытия форм
 popupList.forEach(popup => {
   popup.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('popup__close-button') || evt.target === popup) {
       closePopup(popup);
-    }
+    };
   });
 });
 //Обработчик события "отпрвки" формы
-formElementEdit.addEventListener('submit', formSubmitHandler);
+formElementEdit.addEventListener('submit', submitProfileForm);
 //Функция создания новой карточки
 const createElement = ({name, link}) => {
   const element = elementTemplate.querySelector('.element').cloneNode(true);
@@ -121,6 +129,7 @@ const createElement = ({name, link}) => {
     openPopup(popupTypeView);
     popupDescription.textContent = evt.target.alt;
     popupImage.src = evt.target.src;
+    popupImage.alt = evt.target.alt;
   });
   return element;
 };
