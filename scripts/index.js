@@ -67,9 +67,6 @@ function openPopup(popupType) {
 function closePopup(popupType) {
   popupType.classList.remove('popup_opened');
   document.removeEventListener('keydown', handleEscapePopup);
-  console.dir(popupType)
-  //if popup have form??
-  removeActiveError(popupType);
 };
 // Обработчик «отправки» формы редактирования профиля, хотя пока
 // она никуда отправляться не будет
@@ -108,6 +105,13 @@ popupList.forEach(popup => {
   popup.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('popup__close-button') || evt.target === popup) {
       closePopup(popup);
+      const popupElementList = Array.from(popup.children);
+      const formInPopup = popupElementList.some(function(form) {
+        return form.localName === 'form';
+      });
+      if (formInPopup) {
+        removeActiveError(popup);
+      };
     };
   });
 });

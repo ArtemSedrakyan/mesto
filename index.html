@@ -27,42 +27,38 @@
     </main>
     <footer class="page__element footer">&copy; 2022 Mesto Russia</footer>
     <div class="popup popup_type_edit">
-      <div class="popup__container">
+      <form class="popup__form popup__form_type_edit" name="popup-type-edit">
         <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
-        <form class="popup__form popup__form_type_edit" name="popup-type-edit">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <label class="popup__field">
-            <input  type="text" minlength="2" maxlength="40" id="name-input" value=""
-              placeholder="Имя" class="popup__input popup__input_type_name" />
-            <span class="popup__input-error name-input-error"></span>
-          </label>
-          <label class="popup__field">
-            <input type="text" minlength="2" maxlength="200" id="job-input" value=""
-              placeholder="О себе" class="popup__input popup__input_type_job" />
-            <span class="popup__input-error job-input-error"></span>
-          </label>
-          <button class="popup__submit-button" type="submit">Сохранить</button>
-        </form>
-      </div>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <label class="popup__field">
+          <input  type="text" minlength="2" maxlength="40" id="name-input" value=""
+            placeholder="Имя" class="popup__input popup__input_type_name" />
+          <span class="popup__input-error name-input-error"></span>
+        </label>
+        <label class="popup__field">
+          <input type="text" minlength="2" maxlength="200" id="job-input" value=""
+            placeholder="О себе" class="popup__input popup__input_type_job" />
+          <span class="popup__input-error job-input-error"></span>
+        </label>
+        <button class="popup__submit-button" type="submit">Сохранить</button>
+      </form>
     </div>
     <div class="popup popup_type_add">
-      <div class="popup__container">
+      <form class="popup__form popup__form_type_add" name="popup-type-add">
         <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
-        <form class="popup__form popup__form_type_add" name="popup-type-add">
-          <h2 class="popup__title">Новое место</h2>
-          <label class="popup__field">
-            <input type="text" minlength="1" maxlength="30" id="place-name" value="" placeholder="Название"
-              class="popup__input popup__input_type_title" required/>
-            <span class="popup__input-error place-name-error"></span>
-          </label>
-          <label class="popup__field">
-            <input type="url" id="place-link" value="" placeholder="Ссылка на картинку"
-              class="popup__input popup__input_type_link" required/>
-            <span class="popup__input-error place-link-error"></span>
-          </label>
-          <button class="popup__submit-button popup__submit-button_disabled" type="submit" disabled>Создать</button>
-        </form>
-      </div>
+        <h2 class="popup__title">Новое место</h2>
+        <label class="popup__field">
+          <input type="text" minlength="1" maxlength="30" id="place-name" value="" placeholder="Название"
+            class="popup__input popup__input_type_title" required/>
+          <span class="popup__input-error place-name-error"></span>
+        </label>
+        <label class="popup__field">
+          <input type="url" id="place-link" value="" placeholder="Ссылка на картинку"
+            class="popup__input popup__input_type_link" required/>
+          <span class="popup__input-error place-link-error"></span>
+        </label>
+        <button class="popup__submit-button popup__submit-button_disabled" type="submit" disabled>Создать</button>
+      </form>
     </div>
     <div class="popup popup_type_view">
       <figure class="popup__figure">
