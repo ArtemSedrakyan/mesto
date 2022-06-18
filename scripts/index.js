@@ -1,7 +1,7 @@
 //Переменная-контейнер с карточками
 const elements = document.querySelector('.elements');
 //переменная-шаблон карточки
-const elementTemplate = document.querySelector('.template-element').content;
+const elementTemplate = document.querySelector('.template-element');
 //объявляем переменную для закрытия попапов
 const popupCloseBtn = document.querySelectorAll('.popup__close-button');
 //объявляем переменные для попапа редактировния профиля
@@ -32,6 +32,10 @@ const popupViewFigure = popupTypeView.querySelector('.popup__figure');
 const popupDescription = popupTypeView.querySelector('.popup__description');
 const popupImage = popupTypeView.querySelector('.popup__image');
 
+import { initialElements, configFormValidation} from './elements.js';
+import FormValidator from './FormValidator.js';
+import { Card } from './Card.js';
+
 //Функция закрытия попапа по нажатию клавиши Escape
 const handleEscapePopup = (evt) => {
   if (evt.key === 'Escape') {
@@ -58,6 +62,15 @@ const removeActiveError = (activePopup) => {
     };
   });
 };
+//Создаем пустой объект для записи экземпляров класса FormValidator
+const formValidators = {};
+//Создаем экземпляры класса FormValidator, находя формы по ключу name.
+//Включаем валидацию для каждой формы
+Array.from(document.forms).forEach(formElement => {
+  formValidators[formElement.name] = new FormValidator(configFormValidation, formElement);
+  formValidators[formElement.name].enableValidation();
+});
+
 //Функция открытия форм
 function openPopup(popupType) {
   popupType.classList.add('popup_opened');
@@ -68,6 +81,13 @@ function closePopup(popupType) {
   popupType.classList.remove('popup_opened');
   document.removeEventListener('keydown', handleEscapePopup);
 };
+//Функция открытия попапа просмотра
+export function openPopupView ({name, link}) {
+  popupDescription.textContent = name;
+  popupImage.src = link
+  popupImage.alt = name;
+  openPopup(popupTypeView);
+}
 // Обработчик «отправки» формы редактирования профиля, хотя пока
 // она никуда отправляться не будет
 function submitProfileForm(evt) {
@@ -76,14 +96,7 @@ function submitProfileForm(evt) {
   profileJob.textContent = jobInput.value;
   closePopup(popupTypeEdit);
 };
-//Функция добавления лайка карточке
-const handleLikeClick = (evt) => {
-  evt.target.classList.toggle('element__like-button_active');
-};
-//Функция удаления карточки
-const handleDeleteClick = (evt) => {
-  evt.target.closest('.element').remove();
-};
+
 //Обработчик события открытия формы редактироваиня профиля
 profileEditBtn.addEventListener('click', function() {
   openPopup(popupTypeEdit);
@@ -117,32 +130,19 @@ popupList.forEach(popup => {
 });
 //Обработчик события "отпрвки" формы
 formElementEdit.addEventListener('submit', submitProfileForm);
-//Функция создания новой карточки
-const createElement = ({name, link}) => {
-  const element = elementTemplate.querySelector('.element').cloneNode(true);
-  const elementPlaceName = element.querySelector('.element__place-name');
-  const elementImage = element.querySelector('.element__image');
-  const elementDeleteBtn = element.querySelector('.element__delete-button');
-  const elementLikeBtn = element.querySelector('.element__like-button');
-  elementImage.src = link;
-  elementImage.alt = name;
-  elementPlaceName.textContent = name;
-  elementLikeBtn.addEventListener('click', handleLikeClick);
-  elementDeleteBtn.addEventListener('click', handleDeleteClick);
-  elementImage.addEventListener('click', (evt) => {
-    openPopup(popupTypeView);
-    popupDescription.textContent = evt.target.alt;
-    popupImage.src = evt.target.src;
-    popupImage.alt = evt.target.alt;
-  });
-  return element;
-};
+
 //Добавление шести карточек из "коробки"
-initialElements.forEach( (item) => elements.append(createElement(item)));
+initialElements.forEach( (item) => {
+  const defaultCard = new Card (item.name, item.link, '.template-element')
+  const cardBlock = defaultCard.generateCard();
+
+  elements.append(cardBlock);
+});
 //Обработчик события добавления карточки
 formElementAdd.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  const newElement = createElement({name: elementTitleInput.value, link: elementLinkInput.value});
-  elements.prepend(newElement);
+  const newElement = new Card (elementTitleInput.value, elementLinkInput.value, '.template-element');
+  const newCard = newElement.generateCard();
+  elements.prepend(newCard);
   closePopup(popupTypeAdd);
 });

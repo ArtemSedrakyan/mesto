@@ -1,5 +1,5 @@
 // Объявление переменных
-const initialElements = [
+export const initialElements = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -25,3 +25,11 @@ const initialElements = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+export const configFormValidation = {
+  inputSelector: 'popup__input',
+  submitButtonSelector: 'popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_visible'
+};
