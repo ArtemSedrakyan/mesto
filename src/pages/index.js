@@ -14,6 +14,8 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import UserInfo from '../components/UserInfo.js'
 
+import './index.css'
+
 //Экземпляр класса с данными пользователя
 const userInfo = new UserInfo ({
   profileNameSelector: 'profile__name',
