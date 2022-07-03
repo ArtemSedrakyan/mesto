@@ -4,11 +4,13 @@ class Popup {
   }
 
   open() {
-    this._popupElement.classList.add('popup_opened')
+    this._popupElement.classList.add('popup_opened');
+    document.addEventListener('keydown', this._handleEscClose);
   }
 
-  close = () => {
+  close() {
     this._popupElement.classList.remove('popup_opened')
+    document.removeEventListener('keydown', this._handleEscClose)
   }
 
   _handleEscClose = (evt) => {
@@ -18,7 +20,6 @@ class Popup {
   }
 
   setEventListeners() {
-    document.addEventListener('keydown', this._handleEscClose)
     this._popupElement.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('popup__close-button') || evt.target === this._popupElement) {
         this.close()

@@ -10,8 +10,6 @@ class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    // this.inputList = Array.from(this.form.querySelectorAll('.popup__input'))
-
     this._formValues = {};
     this.inputList.forEach(input => this._formValues[input.name] = input.value);
 
@@ -20,18 +18,15 @@ class PopupWithForm extends Popup {
 
   setEventListeners() {
     super.setEventListeners();
-    //---------------------------------------- ПОМЕНЯТЬ КОЛЛБЭК СМ ОБРАЗЕЦ
     this.form.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-
-    this.form.reset();
     })
   }
 
   close() {
     super.close();
-    this._inputList.forEach(input => input.value = "");
+    this.form.reset();
   }
 }
 

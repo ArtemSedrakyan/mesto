@@ -1,5 +1,3 @@
-//Переменная-контейнер с карточками
-const elements = document.querySelector('.elements');
 //DOM-элемент кнопки открытия попапа редактировния профиля
 const profileEditBtn = document.querySelector('.profile__edit-button');
 //DOM-элемент кнопки открытия попапа добавления карточек
@@ -37,7 +35,8 @@ popupTypeEdit.setEventListeners();
 const popupTypeAdd = new PopupWithForm({
   popupSelector: 'popup_type_add',
   handleFormSubmit: (formData) => {
-    elements.prepend(createCard(formData));
+    const newCard = createCard(formData);
+    newSection.addNewItem(newCard);
     popupTypeAdd.close();
   }
 })
@@ -76,22 +75,25 @@ profileEditBtn.addEventListener('click', () => {
 });
 //Обработчик события открытия формы добавления карточки
 elementAddBtn.addEventListener('click', () => {
-  popupTypeAdd.inputList.forEach( (input) => {
-    input.value = "";
-  });
   formAddValidator.resetValidation();
   popupTypeAdd.open();
 });
 
-// Создаем экземпляр класса для отрисовки начальных карточек
-const initialCards = new Section ({
+// Создаем экземпляр класса Section для отрисовки начальных карточек
+const initialSection = new Section ({
   items: initialElements,
   renderer:  (item) => {
     const cardElement = createCard(item)
-    initialCards.addItem(cardElement)
+    initialSection.addItem(cardElement)
   }
 },
 '.elements'
 );
 //отрисовка начальных карточек
-initialCards.renderItems();
+initialSection.renderItems();
+
+//Создаем экземпляр класса Section для отрисовки новой карточки
+const newSection = new Section (
+  {},
+'.elements'
+);
