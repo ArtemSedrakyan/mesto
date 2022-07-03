@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="pages/index.css" />
+    <link rel="stylesheet" href="./src/index.css" />
     <title>Mesto Russia</title>
   </head>
   <body class="page">
@@ -14,9 +14,9 @@
       <section class="profile">
         <img class="profile__avatar" src="images/image_kusto.jpg" alt="Жак-Ив Кусто"/>
         <div class="profile__info">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name" id="name">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" type="button" aria-label="Редактировать"></button>
-          <p class="profile__job">Исследователь океана</p>
+          <p class="profile__job" id="job">Исследователь океана</p>
         </div>
         <button class="profile__add-button" type="button" aria-label="Добавить"></button>
       </section>
@@ -27,16 +27,16 @@
     </main>
     <footer class="page__element footer">&copy; 2022 Mesto Russia</footer>
     <div class="popup popup_type_edit">
-      <form class="popup__form popup__form_type_edit" name="popup-type-edit">
+      <form class="popup__form popup__form_type_edit" name="form-type-edit">
         <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <label class="popup__field">
-          <input  type="text" minlength="2" maxlength="40" id="name-input" value=""
+          <input  type="text" minlength="2" maxlength="40" id="name-input" name="name" value=""
             placeholder="Имя" class="popup__input popup__input_type_name" required/>
           <span class="popup__input-error name-input-error"></span>
         </label>
         <label class="popup__field">
-          <input type="text" minlength="2" maxlength="200" id="job-input" value=""
+          <input type="text" minlength="2" maxlength="200" id="job-input" name="job" value=""
             placeholder="О себе" class="popup__input popup__input_type_job" required/>
           <span class="popup__input-error job-input-error"></span>
         </label>
@@ -44,16 +44,16 @@
       </form>
     </div>
     <div class="popup popup_type_add">
-      <form class="popup__form popup__form_type_add" name="popup-type-add">
+      <form class="popup__form popup__form_type_add" name="form-type-add">
         <button class="popup__close-button" type="button" aria-label="Закрыть"></button>
         <h2 class="popup__title">Новое место</h2>
         <label class="popup__field">
-          <input type="text" minlength="1" maxlength="30" id="place-name" value="" placeholder="Название"
+          <input type="text" minlength="1" maxlength="30" id="place-name" name="name" value="" placeholder="Название"
             class="popup__input popup__input_type_title" required/>
           <span class="popup__input-error place-name-error"></span>
         </label>
         <label class="popup__field">
-          <input type="url" id="place-link" value="" placeholder="Ссылка на картинку"
+          <input type="url" id="place-link" name="link" value="" placeholder="Ссылка на картинку"
             class="popup__input popup__input_type_link" required/>
           <span class="popup__input-error place-link-error"></span>
         </label>
@@ -75,6 +75,6 @@
         <button class="element__delete-button" type="button" aria-label="Удалить карточку"></button>
       </li>
     </template>
-    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./src/index.js"></script>
   </body>
 </html>

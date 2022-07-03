@@ -1,7 +1,7 @@
-export class Card {
-  constructor(name, link, templateSelector, handleCardClick) {
-    this._name = name;
-    this._link = link;
+class Card {
+  constructor(data, templateSelector, handleCardClick) {
+    this._name = data.name;
+    this._link = data.link;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
   };
@@ -38,9 +38,7 @@ export class Card {
 
     this._likeBtn.addEventListener('click', this._handleLikeClick);
     this._deleteBtn.addEventListener('click', this._handleDeleteClick);
-    this._cardImage.addEventListener('click', () => {
-      this._handleCardClick(this._name, this._link)
-    });
+    this._cardImage.addEventListener('click', this._handleCardClick);
   };
 
   //Публичный метод получения готовой карточки
@@ -52,3 +50,5 @@ export class Card {
     return this._element;
   }
 };
+
+export default Card;
