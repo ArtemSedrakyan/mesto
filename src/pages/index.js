@@ -36,7 +36,8 @@ const popupTypeAdd = new PopupWithForm({
   popupSelector: 'popup_type_add',
   handleFormSubmit: (formData) => {
     const newCard = createCard(formData);
-    newSection.addNewItem(newCard);
+    initialSection.addNewItem(newCard);
+    initialSection.renderItems();
     popupTypeAdd.close();
   }
 })
@@ -91,9 +92,3 @@ const initialSection = new Section ({
 );
 //отрисовка начальных карточек
 initialSection.renderItems();
-
-//Создаем экземпляр класса Section для отрисовки новой карточки
-const newSection = new Section (
-  {},
-'.elements'
-);
