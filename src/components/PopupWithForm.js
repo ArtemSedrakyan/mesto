@@ -43,7 +43,6 @@ class PopupWithForm extends Popup {
   toggleButtonCaption(isSaving) {
     this._buttonSignature.textContent = isSaving ? this._buttonCaptionConfig.loadingCaption : this._buttonCaptionConfig.defaultCaption
   };
-
 }
 
 export default PopupWithForm;

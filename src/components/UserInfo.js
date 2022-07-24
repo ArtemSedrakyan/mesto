@@ -15,21 +15,21 @@ class UserInfo {
     this._userData[this._profileAvatarElement.id] = this._profileAvatarElement.src;
 
     return this._userData;
-  }
+  };
 
   setUserInfo(data) {
     this._profileNameElement.textContent = data.name;
     this._profileJobElement.textContent = data.about;
     this._id = data._id;
-  }
+  };
 
   setUserAvatar(link) {
     this._profileAvatarElement.src = link;
-  }
+  };
 
   getUserId() {
     return this._id;
-  }
+  };
 }
 
 export default UserInfo;
