@@ -5,11 +5,16 @@ class Card {
     this._likes = data.likes;
     this.cardId = data._id
     this._ownerId = data.owner._id;
+
+    this.userId = userId;
+
     this._templateSelector = templateSelector;
+
     this._handleCardClick = handleCardClick;
     this._handleDeleteClick = handleCardDelete;
     this._handleLikeCard = handleCardLike;
-    this._userId = userId;
+
+    this._isOwner = this.userId === this._ownerId;
   };
 
   //Метод создания новой карточки
@@ -28,7 +33,7 @@ class Card {
 
   //Метод проверки наличия пользовательского лайка на карточке
   _isLiked() {
-    return this._likes.map(item => item._id).includes(this._userId);
+    return this._likes.map(item => item._id).includes(this.userId);
   }
   //Метод отрисовки состояния лайков
   _renderLikes() {
@@ -48,6 +53,13 @@ class Card {
   removeCard = () => {
     this._element.remove();
   };
+
+  _checkCardOwner() {
+    if (!this._isOwner) {
+      this._deleteBtn.remove();
+      return this._element;
+    }
+  }
 
   //Метод установки слушателей лайка и удаления карточки
   _setEventListeners() {
@@ -70,6 +82,7 @@ class Card {
   generateCard() {
     this._getTemplate();
     this._setEventListeners();
+    this._checkCardOwner();
     this._fillData();
 
     return this._element;
