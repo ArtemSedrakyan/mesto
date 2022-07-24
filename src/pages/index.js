@@ -28,7 +28,7 @@ const api = new Api({
 });
 
 //Экземпляр класса с данными пользователя
-export const userInfo = new UserInfo({
+const userInfo = new UserInfo({
   profileNameSelector: "profile__name",
   profileJobSelector: "profile__about",
   profileAvatarSelector: "profile__avatar",
@@ -39,20 +39,26 @@ const popupTypeEdit = new PopupWithForm({
   popupSelector: "popup_type_edit",
   handleFormSubmit: (formData) => {
     popupTypeEdit.toggleButtonCaption(true);
-    api.patchProfileData(formData);
-    api.getUserInfo()
-    .then((res) => {
-      userInfo.setUserInfo(res);
+    api.patchProfileData(formData)
+    .then( () => {
+      api.getUserInfo()
+      .then((res) => {
+        userInfo.setUserInfo(res);
+        popupTypeEdit.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        popupTypeEdit.toggleButtonCaption(false);
+      })
     })
     .catch((err) => {
       console.log(err);
-    })
-    .finally(() => {
-      popupTypeEdit.toggleButtonCaption(false);
     });
-    popupTypeEdit.close();
   },
-  buttonCaptionConfig: buttonCaptions
+  buttonCaptionConfig: buttonCaptions,
+  inputValuesSetter: setInputs
 });
 //Устанавливаем слушатели на попап редактирования профиля
 popupTypeEdit.setEventListeners();
@@ -63,19 +69,22 @@ const popupTypeAvatar = new PopupWithForm({
   handleFormSubmit: (formData) => {
     popupTypeAvatar.toggleButtonCaption(true);
     api.patchProfileAvatar(formData)
-    api.getUserInfo()
-    .then((res) => {
-      userInfo.setUserAvatar(res.avatar)
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-    .finally(() => {
-      popupTypeAvatar.toggleButtonCaption(false);
-    })
-    popupTypeAvatar.close()
+    .then(() => {
+      api.getUserInfo()
+      .then((res) => {
+        userInfo.setUserAvatar(res.avatar);
+        popupTypeAvatar.close();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        popupTypeAvatar.toggleButtonCaption(false);
+      });
+    });
   },
-  buttonCaptionConfig: buttonCaptions
+  buttonCaptionConfig: buttonCaptions,
+  inputValuesSetter: setInputs
 });
 //Устанавливаем слушатели на попап редактирования аватара
 popupTypeAvatar.setEventListeners();
@@ -87,24 +96,15 @@ const popupTypeAdd = new PopupWithForm({
     popupTypeAdd.toggleButtonCaption(true);
     api.addNewCard(formData)
     .then((res) => {
-      const newSection = new Section({
-        items: [res],
-        renderer: (item) => {
-          const newCardElement = createCard(item);
-          newSection.addNewItem(newCardElement)
-        }
-      },
-      'elements'
-      )
-      newSection.renderItems();
+      initialSection.renderItems([res]);
+      popupTypeAdd.close();
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
       popupTypeAdd.toggleButtonCaption(false);
-    })
-    popupTypeAdd.close();
+    });
   },
   buttonCaptionConfig: buttonCaptions
 });
@@ -180,6 +180,21 @@ function createCard(data) {
 
   return cardBlock;
 };
+//--------------------------------------------------------
+//Функция установки значений полей профиля в инпуты
+function setInputs(popup) {
+  const userInfoData = userInfo.getUserInfo();
+  popup.inputList.forEach((input) => {
+    input.value = userInfoData[input.name];
+  });
+};
+
+//Создание экземпляра класса Section
+const initialSection = new Section({
+  renderer: createCard
+},
+'elements'
+);
 
 //Обработчик события открытия формы редактироваиня профиля
 profileEditBtn.addEventListener("click", () => {
@@ -207,46 +222,58 @@ elementAddBtn.addEventListener("click", () => {
 });
 
 
-//Загрузка информации о пользователе с сервера
-api.getUserInfo()
-  .then((res) => {
-    userInfo.setUserInfo(res);
-    userInfo.setUserAvatar(res.avatar);
+// //Загрузка информации о пользователе с сервера
+// api.getUserInfo()
+//   .then((res) => {
+//     userInfo.setUserInfo(res);
+//     userInfo.setUserAvatar(res.avatar);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+// api.getInitialCards()
+//   .then((res) => {
+//     // Создаем экземпляр класса Section для отрисовки начальных карточек
+//     const initialSection = new Section(
+//       {
+//         items: res,
+//         renderer: async (item) => {
+//           const cardElement = createCard(item);
+//           //Запрос на полуение данных о пользователе для сравнения id пользователя и владельца карточки
+//           await api.getUserInfo()
+//           .then((userData) => {
+//             //Если id не совпадает, убираем DOM-элемент, кнопку удаления карточки
+//               if (userData._id !== item.owner._id) {
+//                 const deleteCardBtn = cardElement.querySelector('.element__delete-button');
+//                 deleteCardBtn.remove();
+//                 return cardElement;
+//               };
+//           })
+//           .catch((err) => {
+//             console.log(err);
+//           });
+
+//           initialSection.addItem(cardElement);
+//         },
+//       },
+//       'elements'
+//     );
+//     //отрисовка начальных карточек
+//     initialSection.renderItems();
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+  Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cards]) => {
+    userInfo.setUserInfo(userData);
+    userInfo.setUserAvatar(userData.avatar);
+
+    initialSection.renderItems(cards);
   })
   .catch((err) => {
     console.log(err);
   });
 
-api.getInitialCards()
-  .then((res) => {
-    // Создаем экземпляр класса Section для отрисовки начальных карточек
-    const initialSection = new Section(
-      {
-        items: res,
-        renderer: async (item) => {
-          const cardElement = createCard(item);
-          //Запрос на полуение данных о пользователе для сравнения id пользователя и владельца карточки
-          await api.getUserInfo()
-          .then((userData) => {
-            //Если id не совпадает, убираем DOM-элемент, кнопку удаления карточки
-              if (userData._id !== item.owner._id) {
-                const deleteCardBtn = cardElement.querySelector('.element__delete-button');
-                deleteCardBtn.remove();
-                return cardElement;
-              };
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-
-          initialSection.addItem(cardElement);
-        },
-      },
-      'elements'
-    );
-    //отрисовка начальных карточек
-    initialSection.renderItems();
-  })
-  .catch((err) => {
-    console.log(err);
-  });
